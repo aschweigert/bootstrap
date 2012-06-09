@@ -60,9 +60,9 @@
 	
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     
-    <meta name="author" content="">
+    <meta name="author" content="Adam Schweigert, http://mediatoybox.com">
 
-    <!-- Le styles -->
+    <!-- styles -->
     <link href="<?php bloginfo( 'template_directory' ); ?>/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
@@ -74,20 +74,22 @@
       }
     </style>
     <link href="<?php bloginfo( 'template_directory' ); ?>/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    
+    <script src="<?php bloginfo( 'template_directory' ); ?>/assets/js/modernizr.custom.js"></script>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <!-- fav and touch icons
+    <link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/assets/img/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php bloginfo( 'template_directory' ); ?>/assets/img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php bloginfo( 'template_directory' ); ?>/assets/img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php bloginfo( 'template_directory' ); ?>/assets/img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="<?php bloginfo( 'template_directory' ); ?>/assets/img/ico/apple-touch-icon-57-precomposed.png">
+    -->
     
     <?php wp_enqueue_script("jquery"); ?>
+    
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+
+	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 
     <?php wp_head(); ?>
   
