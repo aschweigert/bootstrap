@@ -1,0 +1,1 @@
+[09-Jun-2012 14:37:35] PHP Fatal error:  Call to undefined function  bloginfo() in /home1/adampsch/public_html/wp-content/themes/bootstrap/index.php on line 11
