@@ -7,3 +7,10 @@ Description: Test theme using Twitter Bootstrap
 Version: 1.0
 License: GNU General Public License
 */
+
+.hero-unit {
+	background-color: #ccddee;
+}
+.clear {
+	clear:both;
+}

@@ -56,6 +56,7 @@
 		      if ($paged>1) {
 		         echo ' - page '. $paged; }
 		   ?>">
+	
 	<meta name="description" content="<?php bloginfo('description'); ?>">
 	
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -64,6 +65,8 @@
 
     <!-- styles -->
     <link href="<?php bloginfo( 'template_directory' ); ?>/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+    
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -73,8 +76,7 @@
         padding: 9px 0;
       }
     </style>
-    <link href="<?php bloginfo( 'template_directory' ); ?>/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    
+       
     <script src="<?php bloginfo( 'template_directory' ); ?>/assets/js/modernizr.custom.js"></script>
 
     <!-- fav and touch icons
