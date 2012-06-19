@@ -14,3 +14,9 @@ License: GNU General Public License
 .clear {
 	clear:both;
 }
+#content {
+	float:right;
+}
+#sidebar {
+	float:left;
+}

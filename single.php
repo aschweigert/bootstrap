@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 	<div class="container-fluid">
-   		<div class="span8 offset2">
+   		<div id="content" class="span9">
    			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
    			<article class="hnews hentry item <?php post_class() ?>" id="post-<?php the_ID(); ?>">
@@ -35,6 +35,6 @@
 			<?php endwhile; endif; ?>
 		</div>
 	
-<?php //get_sidebar(); ?>
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
