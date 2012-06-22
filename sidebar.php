@@ -1,4 +1,9 @@
 <div id="sidebar" class="span3">
+	
+	<div id="branding">
+		<h1>Adam Schweigert</h1>
+		<p>Digital strategist interested in the intersection of design, technology and journalism.</p>
+	</div>
 
     <?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar Widgets')) : else : ?>
     
@@ -36,5 +41,4 @@
 	
 	<?php endif; ?>
 
-</div>
 </div>

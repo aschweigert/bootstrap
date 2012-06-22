@@ -4,7 +4,7 @@ Theme URI: http://mediatoybox.com
 Author: Adam Schweigert
 Author URI: http://mediatoybox.com
 Description: Test theme using Twitter Bootstrap
-Version: 1.0
+Version: 0.1
 License: GNU General Public License
 */
 
@@ -14,9 +14,51 @@ License: GNU General Public License
 .clear {
 	clear:both;
 }
+body {
+	font-size:21px;
+	line-height:32px;
+	font-family: Georgia, Times, serif;
+}
+h1,h2,h3,h4,h5,h6,
+.btn {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+p {
+	margin:0 0 28px;
+}
+ul, ol {
+	margin-bottom:28px;
+}
+li {
+	font-size:19px;
+	line-height:28px;
+	margin-bottom:4px;
+}
+h1.entry-title {
+	font-size:48px;
+	line-height:60px;
+	margin-bottom:0.5em;
+}
+.entry-content h3 {
+	font-size:28px;
+	line-height:30px;
+	margin-bottom:28px;
+}
 #content {
 	float:right;
 }
 #sidebar {
 	float:left;
+	text-align:right;
+	height:100%;
+	padding:auto 0;
+}
+#sidebar ul li {
+	list-style:none;
+}
+
+.wrapper {
+	margin:100px auto;
+	max-width:1170px;
+	padding: 0 4% 0 0;
 }

@@ -1,6 +1,6 @@
-	  <hr>
+	  <hr class="clear">
 
-      <footer id="footer" class="clear source-org vcard copyright">
+      <footer id="footer" class="source-org vcard copyright">
 			<p>&copy;<?php echo date("Y"); echo " "; bloginfo('name'); ?></p>
 	  </footer>
 

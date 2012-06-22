@@ -1,7 +1,10 @@
 <?php get_header(); ?>
 
-   <div class="container-fluid">
-   	 <div id="content" class="span9">
+   <div id="main" class="row-fluid span12">
+   	
+   	<?php get_sidebar(); ?>
+   	
+   	<div id="content" class="span8">
    	 
    	 	<div class="stories">
 			<?php
@@ -14,14 +17,11 @@
 				<div class="story">
 					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 					<p class="meta">
-						<i>Posted on:</i> <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('F jS, Y') ?></time>
-						<span class="byline author vcard">
-							<i>by</i> <span class="fn"><?php the_author() ?></span>
-						</span>
+						<time datetime="<?php echo date(DATE_W3C); ?>" class="updated"><?php the_time('F jS, Y') ?></time>
 						<?php edit_post_link('edit post', ' - ', ''); ?>
 					</p>
 					<?php the_excerpt(); ?>
-					<p class="more_link"><a href="<?php the_permalink(); ?>">Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</a></p>
+					<p class="more_link"><a href="<?php the_permalink(); ?>">Continue&nbsp;reading&nbsp;&rarr;</a></p>
 				</div>
 				<hr>
 			<?php endwhile; ?>
@@ -34,6 +34,6 @@
 		<?php endif; ?>
      </div><!-- end span9 -->
 
-<?php get_sidebar(); ?>
+</div><!--end #main -->
 
 <?php get_footer(); ?>
