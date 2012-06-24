@@ -33,5 +33,32 @@
     add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
     
     add_filter( 'show_admin_bar', '__return_false' );
+    
+    function add_twitter_contactmethod( $contactmethods ) {
+	    // Add Twitter
+	    if ( !isset( $contactmethods['twitter'] ) )
+	    $contactmethods['twitter'] = 'Twitter';
+	    
+	    // Add Facebook
+	    if ( !isset( $contactmethods['facebook'] ) )
+	    $contactmethods['Facebook'] = 'Facebook';
+	    
+	    // Add Google+
+	    if ( !isset( $contactmethods['gplus'] ) )
+	    $contactmethods['gplus'] = 'Google+';
+
+	    // Remove Yahoo IM
+	    if ( isset( $contactmethods['yim'] ) )
+	    unset( $contactmethods['yim'] );
+	    
+	    // Remove AIM
+	    if ( isset( $contactmethods['aim'] ) )
+	    unset( $contactmethods['aim'] );
+
+	    return $contactmethods;
+	}
+	
+	
+add_filter( 'user_contactmethods', 'add_twitter_contactmethod', 10, 1 );
 
 ?>
