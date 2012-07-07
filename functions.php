@@ -1,4 +1,7 @@
 <?php
+    
+    require_once( TEMPLATEPATH . '/theme-settings.php' );
+    
         // Translations can be filed in the /languages/ directory
         load_theme_textdomain( 'bootstrap', TEMPLATEPATH . '/languages' );
  
@@ -14,27 +17,17 @@
 	function removeHeadLinks() {
     	remove_action('wp_head', 'rsd_link');
     	remove_action('wp_head', 'wlwmanifest_link');
+    	remove_action('wp_head', 'wp_generator');
     }
     add_action('init', 'removeHeadLinks');
-    remove_action('wp_head', 'wp_generator');
     
-    if (function_exists('register_sidebar')) {
-    	register_sidebar(array(
-    		'name' => __('Sidebar Widgets','bootstrap' ),
-    		'id'   => 'sidebar-widgets',
-    		'description'   => __( 'These are widgets for the sidebar.','bootstrap' ),
-    		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    		'after_widget'  => '</div>',
-    		'before_title'  => '<h2>',
-    		'after_title'   => '</h2>'
-    	));
+    // Add the Nav menu
+    if (function_exists('register_nav_menu')) {
+    	register_nav_menu( 'primary', 'Primary Menu');
     }
     
-    add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
-    
-    add_filter( 'show_admin_bar', '__return_false' );
-    
-    function add_twitter_contactmethod( $contactmethods ) {
+    // add user contact methods
+    function bootstrap_contactmethods( $contactmethods ) {
 	    // Add Twitter
 	    if ( !isset( $contactmethods['twitter'] ) )
 	    $contactmethods['twitter'] = 'Twitter';
@@ -58,7 +51,8 @@
 	    return $contactmethods;
 	}
 	
-	
-add_filter( 'user_contactmethods', 'add_twitter_contactmethod', 10, 1 );
+	add_filter( 'user_contactmethods', 'bootstrap_contactmethods', 10, 1 );
 
+	//hide the admin bar
+	add_filter( 'show_admin_bar', '__return_false' );
 ?>

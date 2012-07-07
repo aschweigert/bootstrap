@@ -1,12 +1,8 @@
-<?php get_header(); ?>
+	<?php get_header(); ?>
 
-   <div id="main" class="row-fluid span12">
-   	
-   	<?php get_sidebar(); ?>
-   	
-   	<div id="content" class="span8">
+   	<div id="content">
    	 
-   	 	<div class="stories">
+   	 	<div class="stories <?php if ( is_home() ) echo 'homepage'; ?>">
 			<?php
 				$temp = $wp_query;
 				$wp_query= null;
