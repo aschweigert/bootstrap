@@ -82,72 +82,9 @@
 				</nav>
 
 				<div id="nav-drop">
+
 					<ul class="social-icons hidden-phone">
-
-		          		<?php if ( get_option( 'rss_link' ) ) : ?>
-							<li>
-								<a href="<?php //echo esc_url( get_option( 'rss_link' ) ); ?>" title="RSS">
-									<i class="social-icons small rss"></i>
-								</a>
-							</li>
-						<?php endif; ?>
-
-		          		<?php if ( get_option( 'facebook_link' ) ) : ?>
-							<li>
-								<a href="<?php echo esc_url( get_option( 'facebook_link' ) ); ?>" title="Facebook">
-									<i class="social-icons small facebook"></i>
-								</a>
-							</li>
-						<?php endif; ?>
-
-						<?php if ( get_option( 'twitter_link' ) ) : ?>
-							<li>
-								<a href="<?php echo esc_url( get_option( 'twitter_link' ) ); ?>" title="twitter">
-									<i class="social-icons small twitter"></i>
-								</a>
-							</li>
-						<?php endif; ?>
-
-						<?php if ( get_option( 'youtube_link' ) ) : ?>
-							<li>
-								<a href="<?php echo esc_url( get_option( 'youtube_link' ) ); ?>" title="youtube">
-									<i class="social-icons small youtube"></i>
-								</a>
-							</li>
-						<?php endif; ?>
-
-						<?php if ( get_option( 'flickr_link' ) ) : ?>
-							<li>
-								<a href="<?php echo esc_url( get_option( 'flickr_link' ) ); ?>" title="flickr">
-									<i class="social-icons small flickr"></i>
-								</a>
-							</li>
-						<?php endif; ?>
-
-						<?php if ( get_option( 'gplus_link' ) ) : ?>
-							<li>
-								<a href="<?php echo esc_url( get_option( 'gplus_link' ) ); ?>" title="gplus">
-									<i class="social-icons small gplus"></i>
-								</a>
-							</li>
-						<?php endif; ?>
-
-						<?php if ( get_option( 'pinterest_link' ) ) : ?>
-							<li>
-								<a href="<?php echo esc_url( get_option( 'pinterest_link' ) ); ?>" title="pinterest">
-									<i class="social-icons small pinterest"></i>
-								</a>
-							</li>
-						<?php endif; ?>
-
-						<?php if ( get_option( 'linkedin_link' ) ) : ?>
-							<li>
-								<a href="<?php echo esc_url( get_option( 'linkedin_link' ) ); ?>" title="linkedin">
-									<i class="social-icons small linkedin"></i>
-								</a>
-							</li>
-						<?php endif; ?>
-
+						<?php bootstrap_social_links (); ?>
 		          	</ul>
 
 			        <form method="get" name="searchform" id="searchform" action="<?php bloginfo('url'); ?>/" class="search form-inline clearfix">
