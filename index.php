@@ -12,7 +12,7 @@
 				?>
 				<article class="story">
 					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-					<p class="meta xsmall">
+					<p class="meta">
 						<time datetime="<?php echo date(DATE_W3C); ?>" class="updated"><?php the_time('F jS, Y') ?></time>
 						<?php edit_post_link('edit post', ' - ', ''); ?>
 					</p>
