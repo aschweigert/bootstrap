@@ -71,10 +71,36 @@
 			$field_link = $field . '_link';
 
 			if ( get_option( $field_link ) ) :
-				echo '<li><a href="' . esc_url( get_option( $field_link ) ) . '" title="' . $title . '"><i class="social-icons small ' . $field . '"></i></a></li>';
+				if ( $field == 'gplus' ) {
+					echo '<li><a href="' . esc_url( get_option( $field_link ) ) . '" title="' . $title . '" rel="me"><i class="social-icons small ' . $field . '"></i></a></li>';
+				} else {
+					echo '<li><a href="' . esc_url( get_option( $field_link ) ) . '" title="' . $title . '"><i class="social-icons small ' . $field . '"></i></a></li>';
+				}
 			endif;
 		}
 	}
+
+	add_theme_support( 'post-thumbnails' );
+
+	function autoset_featured_image() {
+          global $post;
+          $already_has_thumb = has_post_thumbnail($post->ID);
+              if (!$already_has_thumb)  {
+              $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
+                          if ($attached_image) {
+                                foreach ($attached_image as $attachment_id => $attachment) {
+                                set_post_thumbnail($post->ID, $attachment_id);
+                                }
+                           }
+                        }
+      }
+
+	add_action('the_post', 'autoset_featured_image');
+	add_action('save_post', 'autoset_featured_image');
+	add_action('draft_to_publish', 'autoset_featured_image');
+	add_action('new_to_publish', 'autoset_featured_image');
+	add_action('pending_to_publish', 'autoset_featured_image');
+	add_action('future_to_publish', 'autoset_featured_image');
 
 	//hide the admin bar
 	add_filter( 'show_admin_bar', '__return_false' );
