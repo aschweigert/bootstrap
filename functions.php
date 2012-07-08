@@ -53,6 +53,7 @@
 
 	add_filter( 'user_contactmethods', 'bootstrap_contactmethods', 10, 1 );
 
+	// a little function to retrieve to the social media links
 	function bootstrap_social_links () {
 
 		$fields = array(
@@ -70,10 +71,9 @@
 			$field_link = $field . '_link';
 
 			if ( get_option( $field_link ) ) :
-				echo '<li><a href="' . esc_url( get_option( $field_link ) ) . '" title="' . $title . '" <i class="social-icons small ' . $field . '"</i></a></li>';
+				echo '<li><a href="' . esc_url( get_option( $field_link ) ) . '" title="' . $title . '"><i class="social-icons small ' . $field . '"></i></a></li>';
 			endif;
 		}
-
 	}
 
 	//hide the admin bar

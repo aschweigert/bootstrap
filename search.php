@@ -14,7 +14,6 @@
 					 */
 					rewind_posts();
 				?>
-				<hr>
 
 				<div class="stories">
 					<?php while ( have_posts() ) : the_post(); ?>

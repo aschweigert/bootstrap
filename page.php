@@ -3,7 +3,7 @@
    		<div id="content">
    			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-   			<article <?php post_class('hnews hentry item') ?>" id="post-<?php the_ID(); ?>">
+   			<article <?php post_class('hnews hentry item') ?> id="post-<?php the_ID(); ?>">
 
 				<header class="page-header">
 					<h1 class="entry-title"><?php the_title(); ?></h1>
