@@ -80,6 +80,7 @@
 		}
 	}
 
+	// add thumbnail support, use the first image in a post if a user forget to set a featured image
 	add_theme_support( 'post-thumbnails' );
 
 	function autoset_featured_image() {
