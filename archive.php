@@ -1,7 +1,7 @@
 	<?php get_header(); ?>
 
    	<div id="content">
-   	 	
+
    	 	<?php
 			/* Queue the first post, that way we know
 			 * what date we're dealing with (if that is the case).
@@ -12,8 +12,9 @@
 			if ( have_posts() )
 				the_post();
 		?>
-		
-					<h2 class="header_bar clear">
+
+				<header class="page-header">
+					<h1 class="entry-title">
 		<?php if ( is_day() ) : ?>
 						Archives: <?php the_date( 'F j, Y', '', '', true ); ?>
 		<?php elseif ( is_month() ) : ?>
@@ -29,8 +30,9 @@
 		<?php else : ?>
 						Blog Archives
 		<?php endif; ?>
-					</h2>
-		
+					</h1>
+				</header>
+
 		<?php
 			/* Since we called the_post() above, we need to
 			 * rewind the loop back to the beginning that way
@@ -39,10 +41,10 @@
 			rewind_posts();
 		?>
 		<hr>
-   	 	
+
    	 	<div class="stories <?php if ( is_home() ) echo 'homepage'; ?>">
 			<?php while ( have_posts() ) : the_post(); ?>
-				<div class="story">
+				<article class="story">
 					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 					<p class="meta">
 						<time datetime="<?php echo date(DATE_W3C); ?>" class="updated"><?php the_time('F jS, Y') ?></time>
@@ -50,15 +52,14 @@
 					</p>
 					<?php the_excerpt(); ?>
 					<p class="more_link"><a href="<?php the_permalink(); ?>">Continue&nbsp;reading&nbsp;&rarr;</a></p>
-				</div>
-				<hr>
+				</article>
 			<?php endwhile; ?>
 		</div>
 		<?php if (  $wp_query->max_num_pages > 1 ) : ?>
-		<div id="nav-below" class="navigation pager">
-			<div class="previous nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyten' ) ); ?></div>
-			<div class="next nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?></div>
-		</div><!-- #nav-below -->
+		<nav id="nav-below" class="pager">
+			<div class="previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyten' ) ); ?></div>
+			<div class="next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?></div>
+		</nav><!-- #nav-below -->
 		<?php endif; ?>
      </div><!-- end span9 -->
 

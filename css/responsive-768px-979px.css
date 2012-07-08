@@ -1,0 +1,16 @@
+@media (min-width: 768px) and (max-width: 979px) {
+  .wrapper {
+    margin-top: 20px;
+  }
+  header {
+    width: 26%;
+    *width: 26%;
+    top: 18%;
+  }
+  #branding h1 {
+    font-size: 32px;
+  }
+  header input {
+    width: 90%;
+  }
+}

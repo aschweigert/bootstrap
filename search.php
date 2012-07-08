@@ -1,10 +1,12 @@
-		<?php get_header(); ?>
-		
+<?php get_header(); ?>
+
    		<div id="content">
 		   	<?php if ( have_posts() ) : ?>
-				
-				<h2 class="header_bar clear">Search Results For: <?php echo get_search_query(); ?></h2>
-				
+
+				<header class="page-header">
+					<h1 class="entry-title">Search Results For: <?php echo get_search_query(); ?></h1>
+				</header>
+
 				<?php
 					/* Since we called the_post() above, we need to
 					 * rewind the loop back to the beginning that way
@@ -13,10 +15,10 @@
 					rewind_posts();
 				?>
 				<hr>
-				
+
 				<div class="stories">
 					<?php while ( have_posts() ) : the_post(); ?>
-						<div class="story">
+						<article class="story">
 							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 							<p class="meta">
 								<time datetime="<?php echo date(DATE_W3C); ?>" class="updated"><?php the_time('F jS, Y') ?></time>
@@ -24,26 +26,29 @@
 							</p>
 							<?php the_excerpt(); ?>
 							<p class="more_link"><a href="<?php the_permalink(); ?>">Continue&nbsp;reading&nbsp;&rarr;</a></p>
-						</div>
-						<hr>
+						</article>
 					<?php endwhile; ?>
 				</div>
-							
+
 				<?php if (  $wp_query->max_num_pages > 1 ) : ?>
-				<div id="nav-below" class="navigation pager">
-					<div class="nav-previous previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrap' ) ); ?></div>
-					<div class="nav-next next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrap' ) ); ?></div>
-				</div><!-- #nav-below -->
+				<nav id="nav-below" class="pager">
+					<div class="previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyten' ) ); ?></div>
+					<div class="next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?></div>
+				</nav><!-- #nav-below -->
 				<?php endif; ?>
-		
+
 			<?php else : ?>
-				<h2 class="entry-title">Nothing Found</h2>
+
+				<header class="page-header">
+					<h1 class="entry-title">Nothing Found For: <?php echo get_search_query(); ?></h1>
+				</header>
+
 				<div class="entry-content">
 					<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'bootstrap' ); ?></p>
 					<form method="get" name="searchform" id="searchform" action="<?php bloginfo('url'); ?>/" class="well form-search">
 						<input type="text" value="" name="s" id="query" placeholder="Search" class="input-xlarge search-query">
 						<button type="submit" id="searchsubmit" class="btn">Go</button>
-					</form>		     
+					</form>
 				</div><!-- .entry-content -->
 		    <?php endif; ?>
 		</div>

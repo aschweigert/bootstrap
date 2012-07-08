@@ -9,10 +9,10 @@
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    
-	
+
+
 	<?php if (is_search()) { ?>
-	<meta name="robots" content="noindex, nofollow" /> 
+	<meta name="robots" content="noindex, nofollow" />
 	<?php } ?>
 
 	<title>
@@ -35,17 +35,16 @@
 		         echo ' - page '. $paged; }
 		   ?>
 	</title>
-    
+
    	<meta name="description" content="<?php bloginfo('description'); ?>">
-	
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    
+
     <meta name="author" content="Adam Schweigert, http://mediatoybox.com">
 
     <!-- styles -->
-    <link href="<?php bloginfo( 'template_directory' ); ?>/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-           
+
     <script src="<?php bloginfo( 'template_directory' ); ?>/assets/js/modernizr.custom.js"></script>
 
     <!-- fav and touch icons
@@ -55,111 +54,109 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php bloginfo( 'template_directory' ); ?>/assets/img/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?php bloginfo( 'template_directory' ); ?>/assets/img/ico/apple-touch-icon-57-precomposed.png">
     -->
-    
+
     <?php wp_enqueue_script("jquery"); ?>
-    
+
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 
     <?php wp_head(); ?>
-  
+
   </head>
 
   <body>
-  
-    <div class="container-fluid wrapper">
-		
-		<div id="main" class="row-fluid span12">
-		
-			<header>
+
+    <div class="wrapper">
+
+			<header id="main">
 				<div id="branding">
 					<a href="<?php bloginfo('url'); ?>">
 						<h1><?php bloginfo('name'); ?></h1>
 						<p class="hidden-phone"><?php bloginfo('description'); ?></p>
 					</a>
 				</div>
-					
+
 				<nav id="mainnav">
 					<?php wp_nav_menu('primary'); ?>
 				</nav>
-		
+
 				<div id="nav-drop">
 					<ul class="social-icons hidden-phone">
-		          		
+
 		          		<?php if ( get_option( 'rss_link' ) ) : ?>
 							<li>
-								<a href="<?php echo esc_url( get_option( 'rss_link' ) ); ?>" title="RSS">
-									<img src="<?php bloginfo('template_directory'); ?>/assets/img/social-icons/rss.png" alt="rss-fav" />
+								<a href="<?php //echo esc_url( get_option( 'rss_link' ) ); ?>" title="RSS">
+									<i class="social-icons small rss"></i>
 								</a>
 							</li>
 						<?php endif; ?>
-						
+
 		          		<?php if ( get_option( 'facebook_link' ) ) : ?>
 							<li>
 								<a href="<?php echo esc_url( get_option( 'facebook_link' ) ); ?>" title="Facebook">
-									<img src="<?php bloginfo('template_directory'); ?>/assets/img/social-icons/facebook.png" alt="facebook-fav" />
+									<i class="social-icons small facebook"></i>
 								</a>
 							</li>
 						<?php endif; ?>
-			
+
 						<?php if ( get_option( 'twitter_link' ) ) : ?>
 							<li>
 								<a href="<?php echo esc_url( get_option( 'twitter_link' ) ); ?>" title="twitter">
-									<img src="<?php bloginfo('template_directory'); ?>/assets/img/social-icons/twitter.png" alt="twitter-fav" />
+									<i class="social-icons small twitter"></i>
 								</a>
 							</li>
 						<?php endif; ?>
-			
+
 						<?php if ( get_option( 'youtube_link' ) ) : ?>
 							<li>
 								<a href="<?php echo esc_url( get_option( 'youtube_link' ) ); ?>" title="youtube">
-									<img src="<?php bloginfo('template_directory'); ?>/assets/img/social-icons/youtube.png" alt="youtube-fav" />
+									<i class="social-icons small youtube"></i>
 								</a>
 							</li>
 						<?php endif; ?>
-			
+
 						<?php if ( get_option( 'flickr_link' ) ) : ?>
 							<li>
 								<a href="<?php echo esc_url( get_option( 'flickr_link' ) ); ?>" title="flickr">
-									<img src="<?php bloginfo('template_directory'); ?>/assets/img/social-icons/flickr.png" alt="flickr-fav" />
+									<i class="social-icons small flickr"></i>
 								</a>
 							</li>
 						<?php endif; ?>
-			
+
 						<?php if ( get_option( 'gplus_link' ) ) : ?>
 							<li>
 								<a href="<?php echo esc_url( get_option( 'gplus_link' ) ); ?>" title="gplus">
-									<img src="<?php bloginfo('template_directory'); ?>/assets/img/social-icons/googleplus_black.png" alt="gplus-fav" />
+									<i class="social-icons small gplus"></i>
 								</a>
 							</li>
 						<?php endif; ?>
-						
+
 						<?php if ( get_option( 'pinterest_link' ) ) : ?>
 							<li>
 								<a href="<?php echo esc_url( get_option( 'pinterest_link' ) ); ?>" title="pinterest">
-									<img src="<?php bloginfo('template_directory'); ?>/assets/img/social-icons/pinterest.png" alt="pinterest-fav" />
+									<i class="social-icons small pinterest"></i>
 								</a>
 							</li>
 						<?php endif; ?>
-						
+
 						<?php if ( get_option( 'linkedin_link' ) ) : ?>
 							<li>
 								<a href="<?php echo esc_url( get_option( 'linkedin_link' ) ); ?>" title="linkedin">
-									<img src="<?php bloginfo('template_directory'); ?>/assets/img/social-icons/linkedin.png" alt="linkedin-fav" />
+									<i class="social-icons small linkedin"></i>
 								</a>
 							</li>
 						<?php endif; ?>
 
 		          	</ul>
-		          	
-			        <form method="get" name="searchform" id="searchform" action="<?php bloginfo('url'); ?>/" class="search form-inline">
+
+			        <form method="get" name="searchform" id="searchform" action="<?php bloginfo('url'); ?>/" class="search form-inline clearfix">
 				        <input type="text" value="" name="s" id="query" placeholder="Search" />
+				        <button type="submit" id="searchsubmit" class="btn">Go</button>
 				    </form>
-				
+
 				</div>
-				
+
 			</header>
-			
-				
-			
+
+
