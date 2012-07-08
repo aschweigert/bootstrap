@@ -61,6 +61,49 @@
 
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 
+	<?php $url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']; ?>
+
+	<?php if ( is_single() ) { ?>
+		<?php
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+			if ($image != '') {
+				$thumbnailURL = $image[0];
+			} else {
+			    $thumbnailURL = get_bloginfo( 'template_directory' ) . '/assets/img/headshot_500.png';
+		    };
+		?>
+	    <meta name="twitter:card" content="summary">
+	    <meta name="twitter:site" content="@mediatoybox">
+	    <meta name="twitter:creator" content="@aschweig">
+	    <meta property="og:title" content="<?php the_title(); ?>" />
+	    <meta property="og:type" content="article" />
+	    <meta property="og:url" content="<?php the_permalink(); ?>"/>
+	    <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+	    <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
+	    <meta property="og:image" content="<?php echo $thumbnailURL; ?>">
+	<?php } elseif ( is_home() ) { ?>
+		<meta name="twitter:card" content="summary">
+	    <meta name="twitter:site" content="@mediatoybox">
+	    <meta name="twitter:creator" content="@aschweig">
+		<meta property="og:title" content="<?php bloginfo('name'); ?>" />
+	    <meta property="og:type" content="website" />
+	    <meta property="og:url" content="<?php bloginfo('url'); ?>"/>
+	    <meta property="og:image" content="<?php bloginfo( 'template_directory' ); ?>/assets/img/headshot_500.png" />
+	    <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+	    <meta property="og:description" content="<?php bloginfo('description'); ?>" />
+	<?php } else { ?>
+		<meta name="twitter:card" content="summary">
+	    <meta name="twitter:site" content="@mediatoybox">
+	    <meta name="twitter:creator" content="@aschweig">
+		<meta property="og:title" content="<?php bloginfo('name'); ?> <?php wp_title(); ?>" />
+	    <meta property="og:type" content="article" />
+	    <meta property="og:url" content="<?php echo $url; ?>"/>
+	    <meta property="og:image" content="<?php bloginfo( 'template_directory' ); ?>/assets/img/headshot_500.png" />
+	    <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+	    <meta property="og:description" content="<?php bloginfo('description'); ?>" />
+	<?php } ?>
+
+
     <?php wp_head(); ?>
 
   </head>
